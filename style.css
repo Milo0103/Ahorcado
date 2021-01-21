@@ -23,11 +23,14 @@ body {
   align-items: center;
 }
 .perso {
+  background-color: var(--Bg-color);
+  color: var(--Bg-color);
 }
 .rayas {
   font-size: 2em;
   cursor: default;
   text-transform: capitalize;
+  margin: 0 auto;
 }
 .btnyinput{
   display: flex;
@@ -93,9 +96,82 @@ body {
   font-size: 2.3em;
   cursor: default;
   margin: 0 auto;
-
 }
+/* @media screen and (min-width: 321px) and (max-width: 900px) {
+  body{
+    font-size: 200px
+  }
+  .rayas {
+    font-size: 2em;
+    cursor: default;
+    text-transform: capitalize;
+  }
+  .btnyinput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .input{
+    width: 150px;
+    height: 150px;
+    margin-left: 50px;
+    border-radius:5px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .btn {
+    height: 60px;
+    border: none;
+    background-color: #fff;
+    color: #222;
+    font-size: 2em;
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 0.5s;
+  }
+  .btn:hover {
+    text-shadow: 0px 5px 15px #000;
+    background-color: #999;
+    transition: 0.5s;
+  }
+  .again{
+    position: absolute;
+    visibility: hidden;
+  }
+  .letrasUsadas{
+    background-color: var(--Bg-color);
+    margin-top: 20px;
+    height: 90px;
+    width: 360px;
+    border-radius: 5px;
+    transition: 0.5s;
+    font-size: 1.3em;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
 
+  }
+  .letrasUsadas:hover{
+    background-color: #fff;
+    color: #1d1d1d;
+    transition: 0.5s
+  }
+  .score{
+    font-size: 1.3em;
+    margin: 0 auto;
+    cursor: default;
+  }
+
+  .letrero{
+    position: relative;
+    bottom: 0px;
+    font-size: 2.3em;
+    cursor: default;
+    margin: 0 auto;
+  }
+} */
 
 
 

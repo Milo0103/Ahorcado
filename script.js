@@ -81,11 +81,15 @@ let high = 0;
 let scoretxt = document.querySelector(".now");
 let highscoretxt = document.querySelector(".high");
 let input = document.querySelector(".input");
-let sobrantes = document.querySelector(".letrasUsadas");
+let sobrantestxt = document.querySelector(".letrasUsadas");
+let sobrantesArray = [];
+// let mGLU = 0; //Metodo de Guardado Letras Usadas
+let alerta = document.querySelector(".alertas");
 let rondas = 0;
 let rondasBuenas = 0;
 // ############ DESCUBRIR PALABRA ############# \\
-document.querySelector("#check").addEventListener("click", function () {
+document.querySelector("#check").addEventListener("click", function ekisde() {
+  alerta.textContent = "";
   rayasEspacio.textContent = "";
   for (let i = 0; i < palabraSeparada.length; i++) {
     if (input.value == palabraSeparada[i]) {
@@ -99,7 +103,7 @@ document.querySelector("#check").addEventListener("click", function () {
   for (let i = 0; i < palabraSecreta.length; i++) {
     rayasEspacio.textContent += rayas[i];
   }
-  // ################################################################
+
   for (let i = 0; i < palabraSecreta.length; i++) {
     for (let b = 0; b < palabraSeparada.length; b++) {
       if (rayas[b] == palabraSeparada[b] && rayas[b] == input.value) {
@@ -113,7 +117,7 @@ document.querySelector("#check").addEventListener("click", function () {
     }
   }
   rondasBuenas = rondas;
-  // #################################################################
+
   let win = 0;
   for (let i = 0; i < palabraSecreta.length; i++) {
     if (rayas[i] == palabraSeparada[i]) {
@@ -123,7 +127,25 @@ document.querySelector("#check").addEventListener("click", function () {
 
   // ############## LETRAS USADAS ############### \\
   if (!input.value == "") {
-    sobrantes.textContent += `${input.value}, `;
+    let rondasDeSobrantes = 0;
+    let quienSabe;
+    for (let i = 0; i < sobrantesArray.length; i++) {
+      if (input.value == sobrantesArray[i]) {
+        quienSabe = true;
+        break;
+      } else {
+        quienSabe = false;
+      }
+    }
+    if (quienSabe) {
+      rondasDeSobrantes++;
+    } else {
+      sobrantesArray.push(input.value);
+    }
+    if (rondasDeSobrantes > 0) {
+      alerta.textContent = "😅Revisa las letras usadas😅";
+    }
+    sobrantestxt.textContent += ` ${input.value}, `;
   }
   // ############# SCORES Y GANAR ############### \\
   scoretxt.textContent = score;
@@ -132,7 +154,7 @@ document.querySelector("#check").addEventListener("click", function () {
     input.style.visibility = "hidden";
     document.querySelector("#check").style.visibility = "hidden";
     document.querySelector("#again").style.visibility = "visible";
-    document.querySelector(".letrero").textContent = "💥YOU LOSE💥";
+    document.querySelector(".letrero").textContent = "💥PERDISTE💥";
   }
   if (palabraSeparada.length == win) {
     if (score > high) {
@@ -143,7 +165,7 @@ document.querySelector("#check").addEventListener("click", function () {
     input.style.visibility = "hidden";
     document.querySelector("#check").style.visibility = "hidden";
     document.querySelector("#again").style.visibility = "visible";
-    document.querySelector(".letrero").textContent = "🎉YOU WIN🎉";
+    document.querySelector(".letrero").textContent = "🎉GANASTE🎉";
   }
   input.value = "";
 });
@@ -175,6 +197,7 @@ document.querySelector("#again").addEventListener("click", function () {
   input.style.visibility = "visible";
   document.querySelector("#check").style.visibility = "visible";
   document.querySelector("#again").style.visibility = "hidden";
-  sobrantes.textContent = "";
+  sobrantestxt.textContent = "";
+  sobrantesArray = [];
   document.querySelector(".letrero").textContent = "";
 });

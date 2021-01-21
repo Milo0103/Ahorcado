@@ -10,15 +10,21 @@
       <h1 id="title">A H O R C A D O</h1>
     </header>
     <div class="juego">
-      <p class="perso"></p>
+      <p class="perso">-</p>
       <p class="rayas"></p>
+      <p class="alertas"></p>
       <span class="btnyinput">
         <button type="button" id="again" class="btn again">Again!</button>
         <button type="button" id="check" class="btn check">Click!</button>
-        <input type="text" class="input" maxlength="1" />
+        <input
+          type="text"
+          class="input"
+          maxlength="1"
+          onkeyup="javascript:this.value=this.value.toLowerCase();"
+        />
       </span>
-      <p class="score txt">Score: <span class="score now">20</span></p>
-      <p class="score txt">Highscore: <span class="score high">0</span></p>
+      <p class="score txt">Puntaje: <span class="score now">20</span></p>
+      <p class="score txt">Record: <span class="score high">0</span></p>
       <div class="letrasUsadas"></div>
       <p class="letrero"></p>
     </div>
