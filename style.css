@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital@1&display=swap");
 * {
   font-family: "Montserrat", sans-serif;
 }
-:root{
+:root {
   --Bg-color: #1d1d1d;
 }
 body {
@@ -28,20 +29,21 @@ body {
 }
 .rayas {
   font-size: 2em;
+  font-family: "Raleway", sans-serif;
   cursor: default;
   text-transform: capitalize;
   margin: 0 auto;
 }
-.btnyinput{
+.btnyinput {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.input{
+.input {
   width: 50px;
   height: 50px;
   margin-left: 50px;
-  border-radius:5px;
+  border-radius: 5px;
   font-size: 1.5em;
   text-transform: uppercase;
   text-align: center;
@@ -62,11 +64,11 @@ body {
   background-color: #999;
   transition: 0.5s;
 }
-.again{
+.again {
   position: absolute;
   visibility: hidden;
 }
-.letrasUsadas{
+.letrasUsadas {
   background-color: var(--Bg-color);
   margin-top: 20px;
   height: 90px;
@@ -77,55 +79,58 @@ body {
   color: #fff;
   text-transform: uppercase;
   text-align: center;
-
 }
-.letrasUsadas:hover{
+.letrasUsadas:hover {
   background-color: #fff;
   color: #1d1d1d;
-  transition: 0.5s
+  transition: 0.5s;
 }
-.score{
+.score {
   font-size: 1.3em;
   margin: 0 auto;
   cursor: default;
 }
 
-.letrero{
+.letrero {
   position: relative;
   bottom: 0px;
   font-size: 2.3em;
   cursor: default;
   margin: 0 auto;
 }
-/* @media screen and (min-width: 321px) and (max-width: 900px) {
-  body{
-    font-size: 200px
+
+@media screen and (min-width: 310px) and (max-width: 500px) {
+  body {
+    font-size: 1em;
+  }
+  #title {
+    font-size: 2.5em;
   }
   .rayas {
-    font-size: 2em;
+    font-size: 2.2em;
     cursor: default;
     text-transform: capitalize;
   }
-  .btnyinput{
+  .btnyinput {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .input{
-    width: 150px;
-    height: 150px;
-    margin-left: 50px;
-    border-radius:5px;
-    font-size: 1.5em;
+  .input {
+    width: 45px;
+    height: 45px;
+    margin-left: 17.3px;
+    border-radius: 5px;
+    font-size: 1.7em;
     text-transform: uppercase;
     text-align: center;
   }
   .btn {
-    height: 60px;
+    height: 50px;
     border: none;
     background-color: #fff;
     color: #222;
-    font-size: 2em;
+    font-size: 1.7em;
     font-family: inherit;
     cursor: pointer;
     border-radius: 3px;
@@ -136,62 +141,123 @@ body {
     background-color: #999;
     transition: 0.5s;
   }
-  .again{
+  .again {
     position: absolute;
     visibility: hidden;
   }
-  .letrasUsadas{
+  .letrasUsadas {
     background-color: var(--Bg-color);
-    margin-top: 20px;
+    margin-top: 10px;
     height: 90px;
-    width: 360px;
+    width: 280px;
     border-radius: 5px;
     transition: 0.5s;
     font-size: 1.3em;
     color: #fff;
     text-transform: uppercase;
     text-align: center;
-
   }
-  .letrasUsadas:hover{
+  .letrasUsadas:hover {
     background-color: #fff;
     color: #1d1d1d;
-    transition: 0.5s
+    transition: 0.5s;
   }
-  .score{
-    font-size: 1.3em;
+  .score,
+  .txt {
+    font-size: 1.5em;
     margin: 0 auto;
     cursor: default;
   }
-
-  .letrero{
+  .letrero {
     position: relative;
     bottom: 0px;
-    font-size: 2.3em;
+    font-size: 2.5em;
     cursor: default;
     margin: 0 auto;
   }
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.
+  .alertas {
+    font-size: 1.2em;
+    margin: 10px auto;
+  }
+}
+@media screen and (min-width: 500px) and (max-width: 780px) {
+  body {
+    font-size: 2em;
+  }
+  #title {
+    font-size: 2.5em;
+  }
+  .rayas {
+    font-size: 2.2em;
+    cursor: default;
+    text-transform: capitalize;
+  }
+  .btnyinput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .input {
+    width: 70px;
+    height: 70px;
+    margin-left: 17.3px;
+    border-radius: 5px;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .btn {
+    height: 85px;
+    border: none;
+    background-color: #fff;
+    color: #222;
+    font-size: 1.7em;
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: 0.5s;
+  }
+  .btn:hover {
+    text-shadow: 0px 5px 15px #000;
+    background-color: #999;
+    transition: 0.5s;
+  }
+  .again {
+    position: absolute;
+    visibility: hidden;
+  }
+  .letrasUsadas {
+    background-color: var(--Bg-color);
+    margin-top: 10px;
+    height: 150px;
+    width: 490px;
+    border-radius: 5px;
+    transition: 0.5s;
+    font-size: 1.3em;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .letrasUsadas:hover {
+    background-color: #fff;
+    color: #1d1d1d;
+    transition: 0.5s;
+  }
+  .score,
+  .txt {
+    font-size: 1.5em;
+    margin: 0 auto;
+    cursor: default;
+  }
+  .letrero {
+    position: relative;
+    bottom: 0px;
+    font-size: 2.5em;
+    cursor: default;
+    margin: 0 auto;
+  }
+  .alertas {
+    font-size: 1.2em;
+    margin: 10px auto;
+  }
+}
