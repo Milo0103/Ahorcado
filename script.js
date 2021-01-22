@@ -20,6 +20,7 @@ const palabras = [
   "esperanza",
   "felicidad",
   "gentileza",
+  "guerra",
   "honestidad",
   "honor",
   "imprescindible",
@@ -44,11 +45,11 @@ const palabras = [
   "resiliencia",
   "respeto",
   "risas",
-  "saudade",
   "sentir",
   "silencio",
-  "​​singularidades",
+  "​​singularidad",
   "sublime",
+  "sufrimiento",
   "ternura",
   "tertulia",
   "vida",
@@ -83,17 +84,40 @@ let highscoretxt = document.querySelector(".high");
 let input = document.querySelector(".input");
 let sobrantestxt = document.querySelector(".letrasUsadas");
 let sobrantesArray = [];
-// let mGLU = 0; //Metodo de Guardado Letras Usadas
 let alerta = document.querySelector(".alertas");
 let rondas = 0;
 let rondasBuenas = 0;
-// ############ DESCUBRIR PALABRA ############# \\
-document.querySelector("#check").addEventListener("click", function ekisde() {
+let Completarlenght;
+let interruptorCompletar = false;
+if (palabraSecreta.length > 10) {
+  Completarlenght = palabraSecreta.length - 2.5 + "em";
+} else {
+  Completarlenght = palabraSecreta.length - 0.5 + "em";
+}
+// ############# DESCUBRIR PALABRA ############# \\
+document.querySelector("#check").addEventListener("click", function () {
+  let win = 0;
+  if (input.value == palabraSecreta) {
+    win = palabraSeparada.length;
+    score++;
+  }
+  if (interruptorCompletar) {
+    input.animate([{ width: "50px" }], {
+      duration: 1000,
+      iterations: 1,
+      fill: "forwards",
+    });
+    document.querySelector("#completa").style.visibility = "visible";
+    input.maxLength = "1";
+    input.style.fontSize = "1.7em";
+    input.style.marginLeft = "30px";
+  }
   alerta.textContent = "";
   rayasEspacio.textContent = "";
   for (let i = 0; i < palabraSeparada.length; i++) {
     if (input.value == palabraSeparada[i]) {
       rayas[i] = palabraSeparada[i];
+      document.querySelector("#completa").style.visibility = "visible";
     } else if (rayas[i] == palabraSeparada[i]) {
       continue;
     } else {
@@ -118,15 +142,13 @@ document.querySelector("#check").addEventListener("click", function ekisde() {
   }
   rondasBuenas = rondas;
 
-  let win = 0;
   for (let i = 0; i < palabraSecreta.length; i++) {
     if (rayas[i] == palabraSeparada[i]) {
       win++;
     }
   }
-
   // ############## LETRAS USADAS ############### \\
-  if (!input.value == "") {
+  if (!input.value == "" && input.value.length < 2) {
     let rondasDeSobrantes = 0;
     let quienSabe;
     for (let i = 0; i < sobrantesArray.length; i++) {
@@ -155,8 +177,10 @@ document.querySelector("#check").addEventListener("click", function ekisde() {
     document.querySelector("#check").style.visibility = "hidden";
     document.querySelector("#again").style.visibility = "visible";
     document.querySelector(".letrero").textContent = "💥PERDISTE💥";
+    document.querySelector("#completa").style.visibility = "hidden";
+    rayasEspacio.textContent = palabraSecreta;
   }
-  if (palabraSeparada.length == win) {
+  if (palabraSeparada.length <= win) {
     if (score > high) {
       high = score;
     }
@@ -166,10 +190,26 @@ document.querySelector("#check").addEventListener("click", function ekisde() {
     document.querySelector("#check").style.visibility = "hidden";
     document.querySelector("#again").style.visibility = "visible";
     document.querySelector(".letrero").textContent = "🎉GANASTE🎉";
+    document.querySelector("#completa").style.visibility = "hidden";
+    rayasEspacio.textContent = palabraSecreta;
   }
   input.value = "";
 });
-// ############### REINICIAR JUEGO ############## \\
+// ############# COMPLETAR PALABRA ############# \\
+document.querySelector("#completa").addEventListener("click", function () {
+  input.animate([{ width: Completarlenght }], {
+    duration: 1000,
+    iterations: 1,
+    fill: "forwards",
+  });
+  document.querySelector("#completa").style.visibility = "hidden";
+  input.maxLength = palabraSecreta.length;
+  interruptorCompletar = true;
+  input.style.fontSize = "1.3em";
+  input.style.marginLeft = "10px";
+  input.style.marginRight = "10px";
+});
+// ############## REINICIAR JUEGO ############## \\
 document.querySelector("#again").addEventListener("click", function () {
   document.documentElement.style.setProperty("--Bg-color", "#1d1d1d");
   palabraSecreta =
